@@ -41,7 +41,7 @@ if(bcrypt.compareSync(password, passwordFiltered[0])){ // existEmail.id pega o i
 const token = uuid();
 await connection.query(`INSERT INTO sessions (token, "userId")
 VALUES ($1, $2)`, [token, userIdFiltered[0]])
-return res.status(201).send(token);
+return res.status(201).send({token});
 }
 
 } catch (error) {
